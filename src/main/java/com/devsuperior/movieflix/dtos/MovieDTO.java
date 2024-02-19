@@ -19,19 +19,19 @@ public class MovieDTO {
     private Integer releaseYear;
     private String imgUri;
     private String synopsis;
-    private Genre genre;
-    private List<Review> reviews = new ArrayList<>();
+    private Long genreId;
+    private List<ReviewDTO> reviews = new ArrayList<>();
 
     public MovieDTO() {}
 
-    public MovieDTO(Long id, String title, String subTitle, Integer releaseYear, String imgUri, String synopsis, Genre genre) {
+    public MovieDTO(Long id, String title, String subTitle, Integer releaseYear, String imgUri, String synopsis, Long genreId) {
         this.id = id;
         this.title = title;
         this.subTitle = subTitle;
         this.releaseYear = releaseYear;
         this.imgUri = imgUri;
         this.synopsis = synopsis;
-        this.genre = genre;
+        this.genreId = genreId;
     }
 
     public MovieDTO(Movie entity) {
@@ -41,7 +41,12 @@ public class MovieDTO {
         releaseYear = entity.getReleaseYear();
         imgUri = entity.getImgUri();
         synopsis = entity.getSynopsis();
-        genre = entity.getGenre();
+        genreId = entity.getGenre().getId();
+    }
+
+    public MovieDTO(Movie entity, List<Review> reviews){
+        this(entity);
+        reviews.forEach(reviewDto -> this.reviews.add(new ReviewDTO(reviewDto)));
     }
 
     public Long getId() {
@@ -92,15 +97,15 @@ public class MovieDTO {
         this.synopsis = synopsis;
     }
 
-    public Genre getGenre() {
-        return genre;
+    public Long getGenreId() {
+        return genreId;
     }
 
-    public void setGenre(Genre genre) {
-        this.genre = genre;
+    public void setGenreId(Long genreId) {
+        this.genreId = genreId;
     }
 
-    public List<Review> getReviews() {
+    public List<ReviewDTO> getReviews() {
         return reviews;
     }
 }

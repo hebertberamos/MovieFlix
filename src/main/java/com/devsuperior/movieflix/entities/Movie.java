@@ -1,5 +1,6 @@
 package com.devsuperior.movieflix.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -26,7 +27,7 @@ public class Movie implements Serializable {
     @JoinColumn(name = "genre_id")
     private Genre genre;
 
-    @OneToMany(mappedBy = "movie")
+    @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER) // Load reviews together movie
     private List<Review> reviews = new ArrayList<>();
 
     public Movie() {}

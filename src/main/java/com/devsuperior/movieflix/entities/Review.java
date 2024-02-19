@@ -1,5 +1,7 @@
 package com.devsuperior.movieflix.entities;
 
+import com.devsuperior.movieflix.dtos.ReviewDTO;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
@@ -27,6 +29,12 @@ public class Review implements Serializable {
 
     public Review(Long id, String text, Movie movie, User user) {
         this.id = id;
+        this.text = text;
+        this.movie = movie;
+        this.user = user;
+    }
+
+    public Review(String text, Movie movie, User user) {
         this.text = text;
         this.movie = movie;
         this.user = user;

@@ -20,6 +20,12 @@ public class ReviewDTO {
         this.userId = userId;
     }
 
+    public ReviewDTO(String text, Long movieId, Long userId) {
+        this.text = text;
+        this.movieId = movieId;
+        this.userId = userId;
+    }
+
     public ReviewDTO(Review entity) {
         id = entity.getId();
         text = entity.getText();

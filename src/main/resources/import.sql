@@ -1,5 +1,5 @@
-INSERT INTO tb_user (name, email, password, role) VALUES ('Bob', 'bob@gmail.com', '123456', 0);
-INSERT INTO tb_user (name, email, password, role) VALUES ('Ana', 'ana@gmail.com', '123456', 1);
+INSERT INTO tb_user (name, email, password, role) VALUES ('Bob', 'bob@gmail.com', '$2a$10$wQUqt09TDeMHD.LY.wRgruAtSR/5/28Qpk5baUAAt/0L9ksbOucTi', 0);
+INSERT INTO tb_user (name, email, password, role) VALUES ('Ana', 'ana@gmail.com', '$2a$10$J25ebC9aRojTxzELtNl9DeEg47NoJj51D4Z2CnkI8qPRYeq2CvLcu', 1);
 
 INSERT INTO tb_genre (name) VALUES ('Comédia')
 INSERT INTO tb_genre (name) VALUES ('Ação')
